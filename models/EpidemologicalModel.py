@@ -8,10 +8,11 @@ class EpidemologicalModel:
         raise NotImplementedError("This is an abstract method!")
 
     def integrate(self, y0, T0, Tmax):
-        solver = scipy.integrate.RK23(fun=self.f, t0=T0, y0=y0, t_bound=Tmax)
+        solver = scipy.integrate.Radau(fun=self.f, t0=T0, y0=y0, t_bound=Tmax, max_step=1)
 
         T, Y = list(), list()
         while solver.t < Tmax:
+            #print(solver.t)
             T.append(solver.t)
             Y.append(list(solver.y))
             solver.step()

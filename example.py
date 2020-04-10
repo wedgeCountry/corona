@@ -12,12 +12,12 @@ if __name__ == "__main__":
     data_path = "data/COVID-19-master/csse_covid_19_data/"
 
     N = 83200000.   # Einwohnerzahl von Deutschland 2019/2020
-    r0 = 2.4        # Ansteckungsrate
-    gamma = 1 / 3   # Mittlere Infektiöse Zeit: 5.5 Tage
+    r0 = 3          # Ansteckungsrate
+    gamma = 1 / 3   # Mittlere Infektiöse Zeit
     beta = r0 * gamma
-    a = 1 / 5.5     # 1/a Latenzzeit
+    a = 1 / 5.5     # 1/a Mittlere Latenzzeit 5.5 Tage
 
-    E0, I0, R0 = 40000.0/N, 10000.0/N, 0
+    E0, I0, R0 = 1000.0/N, 100.0/N, 0
     y0 = [1. - E0 - I0 - R0, E0, I0, R0]
     days = 140
 
